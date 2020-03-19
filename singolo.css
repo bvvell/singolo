@@ -1097,3 +1097,48 @@ p:last-child {
     font-size: 12px;
     font-weight: 400;
 }
+
+.message {
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.message__wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, .3);
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity ease-in-out .5s;
+}
+
+.message__wrapper.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.message__row {
+    margin-top: 10px;
+}
+
+.message__row:first-child {
+    margin-top: 0;
+}
+
+.message .label {
+    font-weight: bold;
+}
