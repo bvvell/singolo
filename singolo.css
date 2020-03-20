@@ -397,6 +397,24 @@ th {
     padding: 0;
 }
 
+@-webkit-keyframes borderBlink {
+    from, to {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, .7);
+    }
+}
+
+@keyframes borderBlink {
+    from, to {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, .7);
+    }
+}
+
 @font-face {
     font-family: "Lato";
     src: url("assets/fonts/Lato-Black.woff2") format("woff2"), url("assets/fonts/Lato-Black.woff") format("woff"), url("assets/fonts/Lato-Black.ttf") format("truetype");
@@ -1141,4 +1159,10 @@ p:last-child {
 
 .message .label {
     font-weight: bold;
+}
+
+.active__project {
+    box-shadow: 0 0 10px rgba(255, 255, 255, .3);
+    -webkit-animation: borderBlink 1s step-end infinite;
+    animation: borderBlink 1s step-end infinite;
 }

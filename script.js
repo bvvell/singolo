@@ -27,6 +27,20 @@ let selectCategory = function () {
 filterButtons.forEach(el => {
     el.addEventListener('click', selectCategory, false)
 })
+//portfolio images
+let removeActiveProject = () => {
+    let items = Array.from(document.querySelectorAll('.portfolio__list__item'));
+    items.forEach(el => el.classList.remove('active__project'))
+}
+let setActiveProject = (e) => {
+    e.preventDefault();
+    if (!e.target.parentNode.classList.contains('active__project') && e.target.parentNode.classList.contains('portfolio__list__item')) {
+        removeActiveProject()
+        e.target.parentNode.classList.add('active__project')
+    }
+}
+document.querySelector('.portfolio__list').addEventListener('click', setActiveProject)
+
 
 //form
 let form = document.querySelector('#quoteForm');
