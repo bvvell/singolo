@@ -27,6 +27,7 @@ let selectCategory = function () {
 filterButtons.forEach(el => {
     el.addEventListener('click', selectCategory, false)
 })
+
 //portfolio images
 let removeActiveProject = () => {
     let items = Array.from(document.querySelectorAll('.portfolio__list__item'));
@@ -93,3 +94,23 @@ form.onsubmit = (e) => {
     }, 100)
 }
 document.querySelector('.contacts').addEventListener('click', closeModal);
+
+
+//header
+let navItems = Array.from(document.querySelectorAll('.header__wrapper__nav__link'));
+let removeActiveLink = () => {
+    navItems.forEach(el => el.classList.remove('active'))
+}
+let setActiveNav = (e) => {
+    if (!e.target.classList.contains('actiive') && e.target.classList.contains('header__wrapper__nav__link')) {
+        removeActiveLink();
+        e.target.classList.add('active')
+        let itemId = e.target.getAttribute('href').substr(1)
+        document.getElementById(itemId).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+    }
+    e.preventDefault();
+}
+document.querySelector('.header__wrapper__nav').addEventListener('click', setActiveNav)

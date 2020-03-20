@@ -447,6 +447,10 @@ th {
     font-display: swap;
 }
 
+#main {
+    padding-top: 95px;
+}
+
 .form__row {
     margin-top: 16px;
 }
@@ -561,6 +565,11 @@ p:last-child {
 .header {
     background-color: #2d303a;
     border-bottom: 6px solid #323746;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
 }
 
 .header__wrapper {
