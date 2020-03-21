@@ -2,7 +2,7 @@
 let filterButtons = document.querySelectorAll('.portfolio__filter__button');
 let portfolioDiv = document.querySelector('.portfolio__list');
 
-let selectCategory = function () {
+let selectCategory = function() {
     if (!this.classList.contains('active')) {
         let listItems = Array.from(document.querySelectorAll('.portfolio__list__item'));
         let currentCategory = this.dataset.category;
@@ -86,7 +86,7 @@ form.onsubmit = (e) => {
     let formData = [];
     e.preventDefault();
     Array.from(formControls).forEach(item => {
-        formData.push({attr: item.getAttribute('name'), value: item.value})
+        formData.push({ attr: item.getAttribute('name'), value: item.value })
     });
     document.querySelector('.contacts').insertBefore(generateMessage(formData), document.querySelector('.contacts__wrapper'));
     setTimeout(() => {
@@ -127,12 +127,11 @@ let slideToRight = () => {
         if (item.classList.contains('active')) {
             item.classList.remove('active', 'slideLeft', 'slideRight')
         } else {
-            item.classList.add('slideRight',);
+            item.classList.add('slideRight', );
             setTimeout(() => item.classList.add('active'), 100)
         }
     })
 }
-document.querySelector('.slider__arrows__item-right').addEventListener('click', slideToRight)
 let slideLeft = (e) => {
     slides.forEach(item => {
         if (item.classList.contains('active')) {
@@ -143,4 +142,13 @@ let slideLeft = (e) => {
         }
     })
 }
-document.querySelector('.slider__arrows__item-left').addEventListener('click', slideLeft)
+document.querySelector('.slider__arrows__item-left').addEventListener('click', slideLeft);
+document.querySelector('.slider__arrows__item-right').addEventListener('click', slideToRight);
+
+
+let images = [...document.querySelectorAll('.image-wrap')];
+images.forEach(item => {
+    item.addEventListener('click', (e) => {
+        e.target.parentNode.classList.toggle('off');
+    })
+})
