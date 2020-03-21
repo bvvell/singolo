@@ -98,18 +98,22 @@ document.querySelector('.contacts').addEventListener('click', closeModal);
 
 //header
 let navItems = Array.from(document.querySelectorAll('.header__wrapper__nav__link'));
+let anchors = Array.from(document.querySelectorAll('.scrloll__anchor'));
 let removeActiveLink = () => {
     navItems.forEach(el => el.classList.remove('active'))
+}
+let scrollTo = (id) => {
+    anchors.filter(item => item.getAttribute('name') === id)[0].scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
 }
 let setActiveNav = (e) => {
     if (!e.target.classList.contains('actiive') && e.target.classList.contains('header__wrapper__nav__link')) {
         removeActiveLink();
         e.target.classList.add('active')
         let itemId = e.target.getAttribute('href').substr(1)
-        document.getElementById(itemId).scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        })
+        scrollTo(itemId);
     }
     e.preventDefault();
 }

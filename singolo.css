@@ -547,6 +547,7 @@ th {
 
 html {
     font-family: "Lato", sans-serif;
+    scroll-behavior: smooth;
 }
 
 .wrapper {
@@ -1174,4 +1175,9 @@ p:last-child {
     box-shadow: 0 0 10px rgba(255, 255, 255, .3);
     -webkit-animation: borderBlink 1s step-end infinite;
     animation: borderBlink 1s step-end infinite;
+}
+
+.scrloll__anchor {
+    position: absolute;
+    top: -95px;
 }
