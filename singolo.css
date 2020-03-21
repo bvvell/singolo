@@ -447,7 +447,7 @@ th {
     font-display: swap;
 }
 
-#main {
+main {
     padding-top: 95px;
 }
 
@@ -570,7 +570,7 @@ p:last-child {
     left: 0;
     right: 0;
     top: 0;
-    z-index: 1;
+    z-index: 4;
 }
 
 .header__wrapper {
@@ -647,8 +647,10 @@ p:last-child {
 }
 
 .slider {
-    background-color: #f06c64;
     position: relative;
+    overflow: hidden;
+    border-bottom: 6px solid #ea676b;
+    height: 600px;
 }
 
 .slider__arrows {
@@ -670,6 +672,7 @@ p:last-child {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    z-index: 3;
 }
 
 .slider__arrows__item {
@@ -723,10 +726,44 @@ p:last-child {
     align-items: center;
     max-width: 798px;
     min-height: 600px;
-    border-bottom: 6px solid #ea676b;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding-bottom: 4px;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #f06c64;
+    transition: left linear .5s, right linear .5s;
+}
+
+.slide.blue {
+    background: #648BF0;
+}
+
+.slide.active {
+    z-index: 1;
+}
+
+.slide:not(.active) {
+    position: absolute;
+}
+
+.slide.slideRight {
+    right: 100%;
+    left: auto!important;
+}
+
+.slide.slideLeft {
+    left: 100%;
+    right: auto!important;
+}
+
+.slide.active {
+    left: 0;
+    right: 0;
 }
 
 .services {

@@ -118,3 +118,29 @@ let setActiveNav = (e) => {
     e.preventDefault();
 }
 document.querySelector('.header__wrapper__nav').addEventListener('click', setActiveNav)
+
+
+//slider
+let slides = Array.from(document.querySelectorAll('.slide'));
+let slideToRight = () => {
+    slides.forEach(item => {
+        if (item.classList.contains('active')) {
+            item.classList.remove('active', 'slideLeft', 'slideRight')
+        } else {
+            item.classList.add('slideRight',);
+            setTimeout(() => item.classList.add('active'), 100)
+        }
+    })
+}
+document.querySelector('.slider__arrows__item-right').addEventListener('click', slideToRight)
+let slideLeft = (e) => {
+    slides.forEach(item => {
+        if (item.classList.contains('active')) {
+            item.classList.remove('active', 'slideRight', 'slideLeft')
+        } else {
+            item.classList.add('slideLeft');
+            setTimeout(() => item.classList.add('active'), 100)
+        }
+    })
+}
+document.querySelector('.slider__arrows__item-left').addEventListener('click', slideLeft)
